@@ -1,0 +1,13 @@
+/* Lite version */
+@import 'lxgw-wenkai-lite-webfont/style.css';
+
+body {
+
+    font-family: "LXGW WenKai Lite", sans-serif;
+}
+
+/* Mono font (optional) */
+pre,code {
+    /* Lite version */
+    font-family: "LXGW WenKai Mono Lite", sans-serif;
+}

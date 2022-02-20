@@ -1,0 +1,20 @@
+{
+  "name": "Neno chrome extension",
+  "description": "在浏览器中快速输入笔记到neno",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+
+      "128": "/images/neno.png"
+    }
+  },
+  "icons": {
+    "128": "/images/neno.png"
+  }
+}
