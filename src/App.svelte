@@ -10,11 +10,13 @@
     onMount(() => {
          chrome.storage.sync.get("config", (value) => {
             console.log(value)
-            config = value.config
+             if(value.config)
+                config = value.config
         });
          chrome.storage.sync.get("history", (value) => {
             console.log(value)
-            history = value.history
+             if(value.history)
+                 history = value.history
         });
 
     })

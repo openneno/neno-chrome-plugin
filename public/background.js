@@ -151,7 +151,7 @@ async function sendNenoToGithub(content,url){
         tags = [...tags, ...mt];
     }
     let neno = {
-        "content": `<p>${content}</p>`,
+        "content": `<p>${content}</p><br/><p>来自<a href="${url}">${url}</a></p>`,
         "pureContent": content,
         "_id": _id,
         "parentId": "",
@@ -182,4 +182,18 @@ async function sendNenoToGithub(content,url){
 
     await fetch(`${config.gitUrl}/repos/${config.githubName}/${config.repoName}/contents/${datefile}/${_id}.json`, requestOptions)
 
+    chrome.notifications.create(
+        "neno_send",
+        {
+            type: "basic",
+            iconUrl: "/images/neno.png",
+            title: "发送成功",
+            message: content,
+            priority: 1,
+            silent: true
+        },
+        function (id) {
+            console.log(id);
+        }
+    )
 }
