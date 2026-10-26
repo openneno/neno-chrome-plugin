@@ -1,20 +1,42 @@
 {
-  "name": "Neno chrome extension",
-  "description": "在浏览器中快速输入笔记到neno",
-  "version": "1.0",
   "manifest_version": 3,
-  "background": {
-    "service_worker": "background.js"
+  "name": "neno",
+  "short_name": "neno",
+  "description": "随手把网页上的文字、链接和想法记到 neno",
+  "version": "2.0.0",
+  "minimum_chrome_version": "120",
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
   },
-  "permissions": ["storage", "activeTab", "scripting", "contextMenus", "notifications"],
   "action": {
-    "default_popup": "index.html",
+    "default_title": "记到 neno",
+    "default_popup": "popup/index.html",
     "default_icon": {
-
-      "128": "/images/neno.png"
+      "16": "icons/16.png",
+      "32": "icons/32.png"
     }
   },
-  "icons": {
-    "128": "/images/neno.png"
+  "options_ui": {
+    "page": "options/index.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "contextMenus", "activeTab", "scripting", "alarms", "notifications"],
+  "host_permissions": ["https://api.github.com/*"],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {"default": "Alt+Shift+N"},
+      "description": "打开 neno 速记"
+    },
+    "save-selection": {
+      "suggested_key": {"default": "Alt+Shift+S"},
+      "description": "保存选中的文字(未选中时保存当前页面)"
+    }
   }
 }
